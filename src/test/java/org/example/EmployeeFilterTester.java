@@ -37,5 +37,14 @@ public class EmployeeFilterTester {
         Assertions.assertTrue(listEmployees.size() > duplicates.size() && duplicates.size() > 0);
     }
 
+    @Test
+    @DisplayName("Should return total number of employees")
+    void shouldReturnTotal() {
+        EmployeeFilter.removeDuplicates(listEmployees);
+        List<EmployeeDTO> filteredList = EmployeeFilter.removeDuplicates(listEmployees);
+        List<EmployeeDTO> duplicates = EmployeeFilter.getDuplicates();
+        Assertions.assertEquals(listEmployees.size(), filteredList.size() + duplicates.size());
+    }
+
 
 }

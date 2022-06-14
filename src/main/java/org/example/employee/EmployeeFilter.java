@@ -28,6 +28,16 @@ public class EmployeeFilter {
                 }
             }
         }
+
+        for (int i = 0; i < employees.size(); i ++) {
+            for (int j = 0; j < duplicates.size(); j ++) {
+                if (employees.get(i).getEmpID() == duplicates.get(j).getEmpID()) {
+                    employees.remove(employees.get(i));
+                    i --;
+                }
+            }
+        }
+
         logger.getLogger().log(Level.INFO, "Returning filtered list of " + employees.size() + " employees");
         logger.closeHandler();
         return employees;
